@@ -224,8 +224,9 @@
         "updated_at": {
             "type": [
                 "null",
-                "date"
-            ]
+                "string"
+            ],
+            "format": "date-time"
         },
         "voicemail": {
             "type": [
@@ -247,5 +248,3 @@
         }
     }
   }
-    
-  
