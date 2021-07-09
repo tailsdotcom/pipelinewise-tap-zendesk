@@ -68,8 +68,9 @@
         "created_at": {
             "type": [
                 "null",
-                "date"
-            ]
+                "string"
+            ],
+            "format": "date-time"
         },
         "customer_requested_voicemail": {
             "type": [
