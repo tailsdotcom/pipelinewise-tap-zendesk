@@ -186,6 +186,12 @@
             ]
         },
         "quality_issues": {
+            "items": {
+                "type": [
+                    "null",
+                    "string"
+                ]
+            },
             "type": [
                 "null",
                 "array"
