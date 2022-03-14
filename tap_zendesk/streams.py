@@ -508,6 +508,22 @@ class Calls(Stream):
             yield (self.stream, call)
 
 
+class AgentActivity(Stream):
+    name = "agent_activity"
+    replication_method = "INCREMENTAL"
+
+    def sync(self, state):
+        activity_records = self.client.talk.agents_activity()
+        for activity_record in activity_records:
+            yield (
+                self.stream,
+                {
+                    **activity_record,
+                    'updated_at': datetime.datetime.now()
+                }
+            )
+
+
 STREAMS = {
     "tickets": Tickets,
     "groups": Groups,
@@ -524,4 +540,5 @@ STREAMS = {
     "ticket_metrics": TicketMetrics,
     "sla_policies": SLAPolicies,
     "calls": Calls,
+    "agent_activity": AgentActivity
 }
