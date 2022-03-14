@@ -216,7 +216,7 @@ def main():
     parsed_args = singer.utils.parse_args(REQUIRED_CONFIG_KEYS)
     internal_config = get_internal_config(parsed_args.config, default_config)
 
-    LOGGER.info("Config contains keys: %s", parsed_args.config.keys())
+    raise ValueError(f"Config contains keys: {parsed_args.config.keys()}")
 
     # OAuth has precedence
     creds = oauth_auth(parsed_args) or api_token_auth(parsed_args)
